@@ -1,0 +1,357 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+/* Base styles */
+html {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+/* Serif font for headings */
+.font-serif {
+  font-family: 'Playfair Display', serif;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f5f5f4;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #a8a29e;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #78716c;
+}
+
+/* Loading animations */
+@keyframes shimmer {
+  0% {
+    background-position: -200px 0;
+  }
+  100% {
+    background-position: calc(200px + 100%) 0;
+  }
+}
+
+.animate-shimmer {
+  background: linear-gradient(90deg, #f3f4f6 0px, #e5e7eb 40px, #f3f4f6 80px);
+  background-size: 200px 100%;
+  animation: shimmer 1.5s linear infinite;
+}
+
+/* Card hover effects */
+.card-hover {
+  transition: all 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+/* Focus styles */
+.focus-ring {
+  @apply focus:outline-none focus:ring-2 focus:ring-stone-900 focus:ring-offset-2;
+}
+
+/* Button styles */
+.btn-primary {
+  @apply bg-stone-900 text-white px-6 py-3 rounded-full hover:bg-stone-800 transition-colors focus-ring;
+}
+
+.btn-secondary {
+  @apply border-2 border-stone-900 text-stone-900 px-6 py-3 rounded-full hover:bg-stone-900 hover:text-white transition-colors focus-ring;
+}
+
+.btn-ghost {
+  @apply text-stone-600 hover:text-stone-900 px-4 py-2 rounded-lg hover:bg-stone-100 transition-colors focus-ring;
+}
+
+/* Form styles */
+.form-input {
+  @apply w-full px-3 py-2 border border-stone-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-stone-900 focus:border-transparent transition-colors;
+}
+
+.form-label {
+  @apply block text-sm font-medium text-stone-700 mb-1;
+}
+
+/* Image optimization */
+img {
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+}
+
+/* Accessibility improvements */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .border-stone-200 {
+    @apply border-stone-400;
+  }
+  
+  .text-stone-600 {
+    @apply text-stone-800;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Dark mode preparation (for future implementation) */
+@media (prefers-color-scheme: dark) {
+  /* Dark mode styles would go here */
+}
+
+/* Component-specific styles */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+@media (max-width: 640px) {
+  .product-grid {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1rem;
+  }
+}
+
+/* Gallery styles */
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  background: #f5f5f4;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.05);
+}
+
+/* Loading states */
+.loading-skeleton {
+  background: linear-gradient(
+    90deg,
+    #f3f4f6 25%,
+    #e5e7eb 37%,
+    #f3f4f6 63%
+  );
+  background-size: 400% 100%;
+  animation: loading 1.4s ease infinite;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Original Stripe Elements styling - Updated */
+.StripeElement--focus {
+  box-shadow: 0 0 0 2px #0c0a09;
+  border-color: #0c0a09;
+}
+
+.StripeElement--invalid {
+  border-color: #dc2626;
+}
+
+.StripeElement--webkit-autofill {
+  background-color: #fefefe !important;
+}
+
+/* Checkout Form Layout Fixes */
+.checkout-payment-section {
+  position: relative;
+  z-index: 10;
+  overflow: visible;
+}
+
+.payment-element-container {
+  position: relative;
+  z-index: 20;
+  overflow: hidden;
+  min-height: 120px;
+  padding: 0;
+  margin-bottom: 1.5rem;
+}
+
+/* Stripe Payment Container - Fixed for complete field rendering */
+.stripe-payment-container {
+  position: relative;
+  z-index: 20;
+  min-height: 180px;
+  padding: 0;
+  margin-bottom: 1.5rem;
+  width: 100%;
+  overflow: visible;
+}
+
+/* Fix Stripe Payment Element positioning and ensure all fields render */
+.__PrivateStripeElement,
+.__PrivateStripeElement > iframe {
+  position: relative !important;
+  z-index: 25 !important;
+  min-height: 150px !important;
+  overflow: visible !important;
+  width: 100% !important;
+}
+
+/* Ensure Stripe Elements render all required fields */
+[data-testid="payment-element"] {
+  position: relative;
+  z-index: 25;
+  max-width: 100%;
+  min-height: 150px;
+  overflow: visible;
+}
+
+/* Stripe Payment Element wrapper */
+.StripeElement {
+  box-sizing: border-box;
+  min-height: 40px;
+  padding: 10px 12px;
+  border: 1px solid #d6d3d1;
+  border-radius: 0.5rem;
+  background-color: white;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  -webkit-transition: box-shadow 150ms ease;
+  transition: box-shadow 150ms ease;
+  overflow: visible;
+}
+
+/* Prevent form element floating and overlapping */
+form input,
+form select,
+form button {
+  position: relative;
+  z-index: 20;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Fix select dropdown appearance and prevent duplication */
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-image: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14"><path fill="%23666" d="M7 10L2 5h10z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 12px;
+  padding-right: 40px;
+}
+
+/* Prevent duplicate elements from Stripe or other sources */
+*:not(:first-child):nth-child(n+2)[class*="country"],
+*:not(:first-child):nth-child(n+2)[name="country"] {
+  display: none !important;
+}
+
+/* Form container constraints */
+.checkout-form-container {
+  position: relative;
+  overflow: visible;
+  max-width: 100%;
+}
+
+/* Button positioning fix */
+button[type="submit"] {
+  position: relative !important;
+  z-index: 50 !important;
+  clear: both;
+  margin-top: 2rem;
+  display: block;
+  width: 100%;
+}
+
+/* Clear any floating elements before the button */
+button[type="submit"]:before {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Prevent text overlap and corruption */
+.checkout-payment-section * {
+  position: relative;
+  z-index: auto;
+}
+
+/* Fix corrupted text display */
+*:after,
+*:before {
+  content: none !important;
+}
+
+/* Ensure proper spacing between form sections */
+.space-y-8 > * + * {
+  margin-top: 2rem !important;
+}
+
+/* Responsive form layout - Updated for Stripe fields */
+@media (max-width: 768px) {
+  .stripe-payment-container {
+    min-height: 200px;
+  }
+  
+  .checkout-payment-section {
+    margin-bottom: 2rem;
+  }
+  
+  /* Ensure mobile Stripe elements render properly */
+  .__PrivateStripeElement,
+  .__PrivateStripeElement > iframe {
+    min-height: 160px !important;
+  }
+}
