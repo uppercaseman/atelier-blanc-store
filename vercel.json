@@ -1,0 +1,12 @@
+{
+  "buildCommand": "pnpm build",
+  "outputDirectory": "dist",
+  "installCommand": "pnpm install",
+  "devCommand": "pnpm dev",
+  "framework": "vite",
+  "env": {
+    "VITE_SUPABASE_URL": "https://nskzgujplhrnzymvhzsp.supabase.co",
+    "VITE_SUPABASE_ANON_KEY": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5za3pndWpwbGhybnp5bXZoenNwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTY4NTk0MjEsImV4cCI6MjA3MjQzNTQyMX0.Yyyq2-fJTYdk3iPFNy0OACrLIg0DSJJ7sJxJgfTSoKw",
+    "VITE_STRIPE_PUBLISHABLE_KEY": "pk_test_51S2WCBFVIVLbQXhnuC33awzR4MhCDiY4ZpMyx6iWG3Bbe61NeB4c2SyeqSyS1NOq6YhnHEEDRICNCvw2nHsLyuvG00ess2iDRd"
+  }
+}
